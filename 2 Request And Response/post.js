@@ -1,9 +1,10 @@
 const http = require("http");
 const fileSystem = require("fs");
+
 const server = http.createServer((req, res) => {
   console.log(req.url, req.method, req.headers);
   if (req.url.toLowerCase() === "/submit-details" && req.method === "POST") {
-    fileSystem.writeFileSync("user-details.text", "Sonu Yadav");
+    fileSystem.writeFileSync("user-details.txt", "Sonu Yadav");
     res.statusCode = 302;
     res.setHeader("Location", "/");
     return res.end();
