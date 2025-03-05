@@ -1,17 +1,19 @@
 {
   "name": "npm-and-tools",
   "version": "1.0.0",
-  "description": "This is my first project creating package json using npm init and understanding npm tools in this",
+  "description": "This is my second project creating and understanding express js and its understanding",
   "license": "ISC",
   "author": "Sonu Yadav",
   "type": "commonjs",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js",
-    "Khul-jao-bhai": "node app.js"
+    "start": "nodemon app.js"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
   }
 }
