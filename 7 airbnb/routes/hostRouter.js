@@ -4,13 +4,15 @@ const path = require("path");
 const express = require("express");
 // local module
 const hostRouter = express.Router();
+const rootDir = require("../utils/pathUtils")
+
 
 hostRouter.get("/add-home", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "../view/add-home.html"));
+  res.sendFile(path.join(rootDir, "/view/add-home.html"));
 });
 hostRouter.post("/add-home", (req, res, next) => {
   console.log(req.body);
-  res.sendFile(path.join(__dirname, "../view/Home-added.html"));
+  res.sendFile(path.join(rootDir, "/view/Home-added.html"));
 });
 
 module.exports = hostRouter;
