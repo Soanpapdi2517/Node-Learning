@@ -1,6 +1,5 @@
 //core module
 const path = require("path");
-
 // external module
 const express = require("express");
 // local module
@@ -13,6 +12,7 @@ app.use((req, res, next) => {
   console.log(req.url, req.method);
   next();
 });
+app.use(express.static(path.join(rootDir, "./public")))
 app.use(userRouter);
 app.use("/host", hostRouter);
 
