@@ -1,11 +1,20 @@
+//core module
 const path = require('path')
+//external module
 const express = require("express");
 const app = express();
+
+//local modules
 const homeRouter = require('./routes/home');
 const ContactRouter = require('./routes/contact-us');
 const rootDir = require('./utils/pathUtils')
-app.use(express.urlencoded());
 
+
+app.use(express.urlencoded());
+app.use((req,res,next)=> {
+  console.log("Handling | Req", req.url, req.method);
+  next();
+})
 // app.use((req, res, next) => {
 //   console.log(req.path);
 //   next();

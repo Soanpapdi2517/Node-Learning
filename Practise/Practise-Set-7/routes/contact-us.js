@@ -1,6 +1,9 @@
+//core module
 const path = require("path");
+//external module
 const express = require("express");
 const ContactRoute = express.Router();
+//local module
 const rootDir = require("../utils/pathUtils");
 
 ContactRoute.get("/contact-us", (req, res, next) => {
