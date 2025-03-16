@@ -1,0 +1,66 @@
+<%- include('partials/preHtml') %>
+  </head>
+  <body>
+    <%- include('partials/nav') %>
+    <main class="max-w-3xl mx-auto p-4 mt-12">
+      <h1 class="text-3xl font-bold mb-4">Register Your Home Here</h1>
+      <form action="/host/add-home" method="POST">
+        <div class="mb-4">
+          <label for="Home" class="text-lg font-medium">Home</label>
+          <input
+            type="text"
+            id="Home"
+            placeholder="Enter your home"
+            name="home"
+            class="text-lg font-medium p-2 rounded"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="Price" class="text-lg font-medium">Price:</label>
+          <input
+            type="number"
+            id="Price"
+            placeholder="Enter Price per Night of Home"
+            name="Price"
+            class="text-lg font-medium p-2 w-1/2 rounded"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="Location" class="text-lg font-medium">Location:</label>
+          <input
+            type="text"
+            id="Location"
+            placeholder="Enter Location"
+            name="Location"
+            class="text-lg font-medium p-2 rounded"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="Range" class="text-lg font-medium">Rating:</label>
+          <input
+            type="range"
+            id="Range"
+            name="Rating"
+            class="text-lg font-medium p-2 rounded"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="Images" class="text-lg font-medium">Images:</label>
+          <input
+            type="text"
+            id="Images"
+            name="Images"
+            placeholder="Enter Images Links"
+            class="text-lg font-medium p-2 w-1/2 rounded"
+          />
+        </div>
+        <button
+          type="submit"
+          class="text-lg font-bold bg-orange-500 text-white p-2 rounded"
+        >
+          Register Home
+        </button>
+      </form>
+    </main>
+  </body>
+</html>
