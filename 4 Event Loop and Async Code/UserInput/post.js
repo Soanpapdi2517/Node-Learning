@@ -18,14 +18,17 @@ const userRequestHandler = (req, res) => {
       // }
       const bodyObj = Object.fromEntries(params);
       console.log(bodyObj);
-      filesystem.writeFile("user.csv", JSON.stringify(bodyObj), (error) => {
-        console.log("File is successfully written");
+      // BLOCKING EVERYTHING
+      // filesystem.writeFileSync("userfile.txt", JSON.stringify(bodyObj));
+
+      // Fixing BLOCKING CODE
+      filesystem.writeFile("Test.txt", JSON.stringify(bodyObj), (error) => {
+        console.log("File Successfully written");
       });
       res.statusCode = 302;
       res.setHeader("Location", "/");
       return res.end();
     });
-    // filesystem.writeFileSync("userfile.txt", "Sonu Yadav")
   } else {
     res.setHeader("Content-Type", "text/html");
     res.write("<html>");

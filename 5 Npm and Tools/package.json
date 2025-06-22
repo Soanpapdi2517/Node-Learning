@@ -1,0 +1,16 @@
+{
+  "name": "npm-and-tools-test",
+  "version": "1.0.0",
+  "description": "This is my revision package.json learning script and knowing how to make them easily",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "khulja-bete": "nodemon app.js"
+  },
+  "author": "Sonu Yadav",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

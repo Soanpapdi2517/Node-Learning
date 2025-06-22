@@ -5,22 +5,21 @@ const userRequestHandler = (req, res) => {
   if (req.url.toLowerCase() === "/submit-details" && req.method === "POST") {
     const body = [];
     req.on("data", (chunk) => {
-      console.log(chunk);
       body.push(chunk);
     });
     req.on("end", () => {
       const fullBody = Buffer.concat(body).toString();
       const params = new URLSearchParams(fullBody);
-      // const bodyObj = {}
-      // for(const [key, value] of params.entries()){
-      //   bodyObj[key] = value;
+      // const bodyObject = {};
+      // for (const [key, val] of params.entries()) {
+      //   bodyObject[key] = val;
       // }
-      const bodyObj = Object.fromEntries(params);
-      console.log(bodyObj);
-      filesystem.writeFileSync("user.txt", JSON.stringify(bodyObj));
+      const bodyObject = Object.fromEntries(params);
+      console.log(bodyObject);
+      filesystem.writeFileSync("revision.txt", JSON.stringify(bodyObject)); 
     });
-    // filesystem.writeFileSync("userfile.txt", "Sonu Yadav")
-
+    // filesystem.writeFileSync("revision.txt", JSON.stringify(bodyObject)); 
+    // // bodyobject is not here and writefilesync call should syncronously
     res.statusCode = 302;
     res.setHeader("Location", "/");
     return res.end();

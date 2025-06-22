@@ -9,7 +9,8 @@ const http =  require('http');
 //     }
 
 const server = http.createServer((request, response)=>{
-    console.log(request);
+    console.log(request.url);
+    console.log(request.method);
 });
 const PORT = 3000;
 
