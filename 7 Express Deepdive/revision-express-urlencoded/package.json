@@ -1,0 +1,18 @@
+{
+  "name": "revision-express-deepdive",
+  "version": "1.0.0",
+  "description": "This is my revision of express deepdive chapter which is prashant sir's video 10 of node js series",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
