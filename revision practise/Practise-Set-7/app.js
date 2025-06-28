@@ -1,7 +1,20 @@
+//Core Module
+const Path = require("path");
+//External module
 const express = require("express");
-
+//Local Module
+const rootDir = require("./Utils/PathUtils");
+const userRouter = require("./Routes/User");
+const hostRouter = require("./Routes/Host");
 const app = express();
 
+app.use((req, res, next) => {
+  console.log(req.method, req.url);
+  next();
+});
+app.use(express.urlencoded());
+app.use(userRouter);
+app.use(hostRouter);
 // app.use("/", (req, res, next) => {
 //   console.log(`Request method is: ${req.method}`);
 //   next();
@@ -15,61 +28,12 @@ const app = express();
 // app.use("/", (req, res, next) => {
 //   res.send('<h1>This is returning response question in practise set</h1>')
 // });
-app.post("/contact-us", (req, res, next) => {
-  const body = [];
-  req.on("data", (chunk) => {
-    body.push(chunk);
-  });
-  req.on("end", () => {
-    const fullbody = Buffer.concat(body).toString();
-    const params = new URLSearchParams(fullbody)
-    const bodyobj = Object.fromEntries(params);
-    fs.writeFile("data.txt", JSON.stringify(bodyobj), (error) => {
-      console.log("file written successfully");
-    });
-  });
-  res.send(`
-    <html>
-<head>
-    <title>Contact-us success</title>
-</head>
-<body>
-    <h3>Thank You for providing details</h1>
-</body>
-</html>`);
-});
-app.get("/contact-us", (req, res, next) => {
-  res.send(`
-    <html>
-<head>
-    <title>Contact-us page</title>
-</head>
-<body>
-    <h3>Contact us by providing details below</h1>
-        <form action="/contact-us" method="post">
-            <label for="name">Enter Your Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name">
-            <label for="email">Enter Your Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email">
-            <input type="submit" value="Register">
-        </form>
-</body>
-</html>`);
-});
-app.use("/", (req, res, next) => {
-  res.send(`<html>
-  <head>
-    <title>home page</title>
-  </head>
-  <body>
-    <h1>This is home page press button below to go for contact us page</h1>
-    <a href="/contact-us">Contact us</a>
-  </body>
-</html>
-`);
+
+app.use((req, res, next) => {
+  res.sendFile(Path.join(rootDir, "views", "404.html"));
 });
 
-const PORT = 3000;
+const PORT = 2004;
 
 app.listen(PORT, () => {
   console.log(`server running on http://localhost:${PORT}`);
