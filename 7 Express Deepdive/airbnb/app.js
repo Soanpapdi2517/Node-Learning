@@ -1,7 +1,12 @@
+//Core Module
+const path = require("path");
+
 //External Module
 const express = require("express");
 const app = express();
 //Local Module
+const RootDir = require('./utils/PathUtils'); //Directory which directing root folder(app.js)
+
 const userRouter = require("./routes/UserRouter");
 const HostRouter = require("./routes/HostRouter");
 app.use((req, res, next) => {
@@ -14,10 +19,7 @@ app.use(userRouter);
 app.use("/host", HostRouter);
 
 app.use((req, res, next) => {
-  res.status(404).send(`
-    <h1>404 the page your are looking for</h1>
-    <h2>is not found</h2>
-    `);
+  res.status(404).sendFile(path.join(RootDir, "views", "404ErrorPage.html"));
 });
 const PORT = 2004;
 app.listen(PORT, () => {
