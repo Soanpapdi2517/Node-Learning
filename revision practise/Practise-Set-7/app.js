@@ -1,7 +1,6 @@
 const express = require("express");
 
 const app = express();
-const fs = require("fs");
 
 // app.use("/", (req, res, next) => {
 //   console.log(`Request method is: ${req.method}`);
