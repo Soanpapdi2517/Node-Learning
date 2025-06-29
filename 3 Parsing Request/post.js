@@ -6,15 +6,19 @@ const userRequestHandler = (req, res) => {
     const body = [];
     req.on("data", (chunk) => {
       body.push(chunk);
+      console.log(chunk)
     });
     req.on("end", () => {
       const fullBody = Buffer.concat(body).toString();
+            console.log(fullBody)
       const params = new URLSearchParams(fullBody);
+                  console.log(params)
       // const bodyObject = {};
       // for (const [key, val] of params.entries()) {
       //   bodyObject[key] = val;
       // }
       const bodyObject = Object.fromEntries(params);
+      console.log(bodyObject);
       console.log(bodyObject);
       filesystem.writeFileSync("revision.txt", JSON.stringify(bodyObject)); 
     });
