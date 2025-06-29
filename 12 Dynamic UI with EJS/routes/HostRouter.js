@@ -9,11 +9,11 @@ const RootDir = require("../utils/PathUtils");
 
 const registeredHomes = [];
 HostRouter.get("/add-home", (req, res, next) => {
-  res.sendFile(path.join(RootDir, "views", "addHome.ejs"));
+  res.render("addHome", { titleName: "Add Home here" });
 });
 HostRouter.post("/add-home", (req, res, next) => {
   registeredHomes.push({ houseName: req.body.houseName });
-  res.sendFile(path.join(RootDir, "views", "successful.ejs"));
+  res.render("successful", { titleName: "Added Successfully" });
 });
 
 exports.HostRouter = HostRouter;
