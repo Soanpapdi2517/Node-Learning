@@ -5,7 +5,7 @@ const path = require("path");
 const express = require("express");
 const HostRouter = express.Router();
 //Local Module
-const homesController = require("../Controller/homes");
+const homesController = require("../Controllers/homes");
 HostRouter.get("/add-home", homesController.getAddHomePage);
 
 HostRouter.post("/add-home", homesController.postAddHomeSuccessPage);
