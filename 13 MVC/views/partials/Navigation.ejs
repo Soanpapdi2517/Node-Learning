@@ -1,0 +1,54 @@
+<nav class="bg-white/70 border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo/Brand -->
+      <div class="flex items-center space-x-3">
+        <div
+          class="w-8 h-8 bg-gradient-to-r from-rose-500 to-pink-500 rounded-full flex items-center justify-center"
+        >
+          <svg
+            class="w-5 h-5 text-white"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
+            />
+          </svg>
+        </div>
+        <span
+          class="text-lg font-bold bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent"
+          >Airbnb</span
+        >
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="flex items-center space-x-2 ml-auto">
+        <a
+          href="/"
+          class="flex items-center gap-2 px-4 py-2 rounded-3xl transition-all duration-200 border-2 <%= currentPage === 'home' ? 'bg-white shadow-sm font-bold' : 'bg-gradient-to-r from-rose-500 to-pink-500 text-white border-transparent hover:from-rose-600 font-extralight hover:to-pink-600 hover:shadow-md' %> focus:outline-none"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
+            />
+          </svg>
+          <span>Go to Home</span>
+        </a>
+        <a
+          href="/host/add-home"
+          class="flex items-center gap-2 px-4 py-2 rounded-3xl transition-all duration-200 border-2 <%= currentPage === 'addHome' ? 'bg-white shadow-sm font-bold' : 'bg-gradient-to-r from-rose-500 to-pink-500 text-white border-transparent hover:from-rose-600 hover:to-pink-600 hover:shadow-md font-extralight' %> focus:outline-none"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <span>Add Home</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
