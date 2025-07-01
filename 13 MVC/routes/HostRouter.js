@@ -10,4 +10,4 @@ HostRouter.get("/add-home", homesController.getAddHomePage);
 
 HostRouter.post("/add-home", homesController.postAddHomeSuccessPage);
 
-exports.HostRouter = HostRouter;
+module.exports = HostRouter;

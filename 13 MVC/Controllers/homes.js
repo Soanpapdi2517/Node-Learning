@@ -11,7 +11,10 @@ exports.getHomePage = (req, res, next) => {
 };
 
 exports.getAddHomePage = (req, res, next) => {
-  res.render("addHome", { titleName: "Add Home here", currentPage: "addHome" });
+  res.render("addHome", {
+    titleName: "Add Home here",
+    currentPage: "addHome",
+  });
 };
 
 exports.postAddHomeSuccessPage = (req, res, next) => {

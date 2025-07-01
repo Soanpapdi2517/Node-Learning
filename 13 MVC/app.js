@@ -8,10 +8,11 @@ const app = express();
 app.set("view engine", "ejs");
 // app.set("views", "File_place_where_it_is_gonna_use"); default is views
 app.set("views", "views");
+
 //Local Module
 const RootDir = require("./utils/PathUtils"); //Directory which directing root folder(app.js)
 const userRouter = require("./routes/UserRouter");
-const { HostRouter } = require("./routes/HostRouter");
+const HostRouter  = require("./routes/HostRouter");
 const ErrorController = require("./Controllers/error");
 //Granting files to public Folder and making it
 //Publicly accessible
