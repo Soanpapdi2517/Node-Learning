@@ -1,0 +1,30 @@
+<%- include('../partials/head') %>
+</head>
+
+<body>
+  <%- include('../partials/nav') %>
+  <div class="flex justify-center items-center m-4">
+    <div class="border-gray-300 border-2 rounded-xl w-9/10 h-full p-5 flex-col justify-around">
+      <div class="w-full h-full">
+        <img class="w-96 rounded-xl" src="<%= home.photoUrl%>" alt="<%= home.houseName%>">
+      </div>
+      <h1 class="font-bold">House Name: <span class="font-light">
+          <%= home.houseName%>
+        </span></h1>
+      <h1 class="font-bold">Price: <span class="font-light">
+          <%= home.price%>
+        </span></h1>
+      <h1 class="font-bold">Location: <span class="font-light"><%= home.location%></span></h1>
+      <h1>⭐:<span class="font-semibold">
+          <%= home.rating%>
+        </span></h1>
+        <div>
+      <%-include('../partials/favouriteForm') %>
+    </div>
+    </div>
+    
+  </div>
+
+</body>
+
+</html>
