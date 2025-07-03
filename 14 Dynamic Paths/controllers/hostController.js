@@ -5,7 +5,6 @@ exports.getAddHome = (req, res, next) => {
     pageTitle: "Add Home to airbnb",
     currentPage: "addHome",
     editingQuery: false,
-
   });
 };
 exports.getEditHome = (req, res, next) => {
@@ -14,7 +13,7 @@ exports.getEditHome = (req, res, next) => {
   Home.findById(editId, (home) => {
     if (!home) {
       console.log("Home is not found for edit");
-      return res.redirect("/host/host-home-list")
+      return res.redirect("/host/host-home-list");
     } else {
       return res.render("host/edit-home", {
         home: home,
@@ -47,9 +46,17 @@ exports.postAddHome = (req, res, next) => {
   });
 };
 exports.postEditHome = (req, res, next) => {
-  const {id, houseName, price, location, rating, photoUrl } = req.body;
+  const { id, houseName, price, location, rating, photoUrl } = req.body;
   const home = new Home(houseName, price, location, rating, photoUrl);
   home.id = id;
   home.save();
   res.redirect("/host/host-home-list");
+};
+
+exports.postDeleteHome = (req, res, next) => {
+  const deleteId = req.params.deleteHomeId;
+  Home.deleteById(deleteId, (error) => {
+    res.redirect("/host/host-home-list");
+    console.log("Error found in deleting the file", error);
+  });
 };

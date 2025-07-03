@@ -78,5 +78,4 @@ exports.postRemoved = (req,res,next)=>{
   Favourite.removeFavourites(removeId, filteredHomeIds=> {
     res.redirect("/favourites");
   })
-  
 }

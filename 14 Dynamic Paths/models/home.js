@@ -49,4 +49,10 @@ module.exports = class Home {
       callback(homeFound);
     });
   }
+    static deleteById(deleteHomeId, callback){
+      Home.fetchAll(registeredHomes => {
+        registeredHomes = registeredHomes.filter(home => home.id !== deleteHomeId);
+        fs.writeFile(homeDataPath, JSON.stringify(registeredHomes), callback)
+      })
+    }
 };
