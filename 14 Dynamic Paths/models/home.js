@@ -2,6 +2,7 @@
 const fs = require("fs");
 const path = require("path");
 const rootDir = require("../utils/pathUtil");
+const { console } = require("inspector");
 
 module.exports = class Home {
   constructor(houseName, price, location, rating, photoUrl) {
