@@ -25,11 +25,6 @@ exports.getEditHome = (req, res, next) => {
     }
   });
 };
-exports.postEditHome = (req,res, next) => {
-  const editId = req.body.id;
-  const editedNewHomeObj =  req.body;
-  Home.editHomes(editId, editedNewHomeObj);
-}
 
 exports.getHostHomes = (req, res, next) => {
   Home.fetchAll((registeredHomes) =>
@@ -50,4 +45,11 @@ exports.postAddHome = (req, res, next) => {
     pageTitle: "Home Added Successfully",
     currentPage: "homeAdded",
   });
+};
+exports.postEditHome = (req, res, next) => {
+  const {id, houseName, price, location, rating, photoUrl } = req.body;
+  const home = new Home(houseName, price, location, rating, photoUrl);
+  home.id = id;
+  home.save();
+  res.redirect("/host/host-home-list");
 };

@@ -8,6 +8,7 @@
       <h1 class="text-2xl font-bold mb-6 text-center text-gray-800"><%= home.houseName%></h1>
       <% }%>
       <form action="/host/<%= editingQuery?"edit-home":"add-home" %>" method="POST" class="max-w-md mx-auto">
+        <input type="hidden" name="id" value="<%= home.id %>">
         <input
           type="text"
           name="houseName"
