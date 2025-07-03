@@ -28,8 +28,6 @@ exports.getBookings = (req, res, next) => {
   });
 };
 
-
-
 exports.getHomeDetails = (req, res, next) => {
   const homeId = req.params.homeId;
   Home.findById(homeId, (home) => {
@@ -73,9 +71,10 @@ exports.getFavouriteList = (req, res, next) => {
   });
 };
 //  remove from get Favourite list
-exports.postRemoved = (req,res,next)=>{
+exports.postRemoved = (req, res, next) => {
   const removeId = req.body.id;
-  Favourite.removeFavourites(removeId, filteredHomeIds=> {
+  Favourite.removeFavourites(removeId, (error) => {
+    console.log("Error found in Removing from Favourites", error);
     res.redirect("/favourites");
-  })
-}
+  });
+};
